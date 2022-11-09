@@ -6,7 +6,7 @@ import numpy as np
 from tqdm import tqdm
 
 sys.path.append('../../../')
-from workdir.utils import *
+from utils import *
 from NeuralNet import NeuralNet
 
 import torch
