@@ -34,7 +34,7 @@ args = dotdict({
 
 
 def retrieve_model():
-    requested_version = os.environ.get('MODEL_VERSION')
+    requested_version = int(os.environ.get('MODEL_VERSION'))
     log.info(f'Requested version is {requested_version}...')
     return handle_versions(requested_version)
 
