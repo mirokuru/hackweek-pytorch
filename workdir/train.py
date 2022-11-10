@@ -2,7 +2,7 @@ import logging
 import coloredlogs
 
 import sys
-import argparse
+import os
 
 from Coach import Coach
 from othello.OthelloGame import OthelloGame as Game
@@ -34,11 +34,9 @@ args = dotdict({
 
 
 def retrieve_model():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--version', type=int, required=True)
-    my_args = parser.parse_args()
-    log.info(f'Requested version is {my_args.version}...')
-    return handle_versions(my_args.version)
+    requested_version = os.environ.get('MODEL_VERSION')
+    log.info(f'Requested version is {requested_version}...')
+    return handle_versions(requested_version)
 
 
 def handle_versions(new_version):
