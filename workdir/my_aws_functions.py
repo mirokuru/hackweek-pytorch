@@ -30,11 +30,11 @@ def download_model(version):
     download_object_to(
         config.MODEL_BUCKET,
         f'{config.MODEL_VERSION_PATH}{version}/{config.MODEL_NAME}',
-        f'current_model/{config.MODEL_NAME}')
+        f'{config.LOCAL_WORK_FOLDER}{config.MODEL_NAME}')
     download_object_to(
         config.MODEL_BUCKET,
         f'{config.MODEL_VERSION_PATH}{version}/{config.MODEL_NAME}.examples',
-        f'current_model/{config.MODEL_NAME}.examples')
+        f'{config.LOCAL_WORK_FOLDER}{config.MODEL_NAME}.examples')
 
 
 def upload_object_to(local_file_name, bucket_name, object_name):
@@ -44,11 +44,11 @@ def upload_object_to(local_file_name, bucket_name, object_name):
 
 def upload_model(version):
     upload_object_to(
-        f'current_model/{config.MODEL_NAME}',
+        f'{config.LOCAL_WORK_FOLDER}{config.MODEL_NAME}',
         config.MODEL_BUCKET,
         f'{config.MODEL_VERSION_PATH}{version}/{config.MODEL_NAME}')
     upload_object_to(
-        f'current_model/{config.MODEL_NAME}.examples',
+        f'{config.LOCAL_WORK_FOLDER}{config.MODEL_NAME}.examples',
         config.MODEL_BUCKET,
         f'{config.MODEL_VERSION_PATH}{version}/{config.MODEL_NAME}.examples')
 

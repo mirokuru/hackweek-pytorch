@@ -9,6 +9,7 @@ from othello.OthelloGame import OthelloGame as Game
 from othello.pytorch.NNet import NNetWrapper as nn
 from utils import *
 from my_aws_functions import *
+import config
 
 
 log = logging.getLogger(__name__)
@@ -25,9 +26,9 @@ args = dotdict({
     'arenaCompare': 40,         # was 40, Number of games to play during arena play to determine if new net will be accepted.
     'cpuct': 1,
 
-    'checkpoint': './current_model/',
+    'checkpoint': f'{config.LOCAL_WORK_FOLDER}',
     'load_model': True,
-    'load_folder_file': ('./current_model/', 'best.pth.tar'),
+    'load_folder_file': (f'{config.LOCAL_WORK_FOLDER}', 'best.pth.tar'),
     'numItersForTrainExamplesHistory': 20,
 
 })
